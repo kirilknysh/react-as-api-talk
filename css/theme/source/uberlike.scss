@@ -1,0 +1,67 @@
+/**
+ * Uberlike theme for reveal.js.
+ * Author: Kiril Knysh
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Solarized colors
+$black: #000;
+$white: #fff;
+$safety: #0070fa;
+$yellow: #ffc043;
+$green: #47b275;
+$purple: #7656be;
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: Helvetica Neue, sans-serif;
+$headingFont: Helvetica Neue, sans-serif;
+$headingFontWeight: 600;
+$headingTextTransform: none;
+$mainColor: $white;
+$headingColor: $white;
+$headingTextShadow: none;
+$backgroundColor: $black;
+$linkColor: $purple;
+$linkColorHover: lighten( $purple, 20% );
+$selectionBackgroundColor: $purple;
+
+$heading1Size: 1.4em;
+$heading2Size: 1.1em;
+$heading3Size: 1.1em;
+$heading4Size: 1.0em;
+
+.reveal {
+	.emphasis {
+		color: $green;
+	}
+
+	.pros {
+		color: #2cab49;
+	}
+	.cons {
+		color: #a52626;
+	}
+
+	.strikeout {
+		text-decoration: line-through;
+		text-decoration-color: #d33682;
+	}
+}
+
+.reveal a {
+    text-decoration: underline!important;
+}
+
+.reveal .huge {
+	font-size: 7em;
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
