@@ -37,8 +37,31 @@ $heading3Size: 1.1em;
 $heading4Size: 1.0em;
 
 .reveal {
+	a {
+		text-decoration: underline!important;
+	}
+
 	.emphasis {
 		color: $green;
+	}
+
+	.slides section {
+		.fragment.highlight-emphasis {
+			opacity: 1;
+			visibility: inherit;
+
+			&.visible {
+				color: $green;
+			}
+		}
+
+		blockquote {
+			width: 85%;
+
+			.cite {
+				text-align: right;
+			}
+		}
 	}
 
 	.pros {
@@ -52,16 +75,31 @@ $heading4Size: 1.0em;
 		text-decoration: line-through;
 		text-decoration-color: #d33682;
 	}
-}
 
-.reveal a {
-    text-decoration: underline!important;
-}
-
-.reveal .huge {
-	font-size: 7em;
+	.huge {
+		font-size: 7em;
+	}
 }
 
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
+
+.reveal {
+	font-weight: 300;
+
+	ul {
+		list-style-type: none;
+
+		li {
+			padding: .3em .5em;
+			border-style: solid;
+			border-width: 1px 0;
+			border-color: darken( $purple, 30% );
+
+			&:not(:first-child) {
+				border-top-width: 0;
+			}
+		}
+	}
+}

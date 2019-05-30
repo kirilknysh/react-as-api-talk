@@ -2,8 +2,22 @@
  * Uberlike theme for reveal.js.
  * Author: Kiril Knysh
  */
+.reveal a {
+  text-decoration: underline !important; }
+
 .reveal .emphasis {
   color: #47b275; }
+
+.reveal .slides section .fragment.highlight-emphasis {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.highlight-emphasis.visible {
+    color: #47b275; }
+
+.reveal .slides section blockquote {
+  width: 85%; }
+  .reveal .slides section blockquote .cite {
+    text-align: right; }
 
 .reveal .pros {
   color: #2cab49; }
@@ -14,9 +28,6 @@
 .reveal .strikeout {
   text-decoration: line-through;
   text-decoration-color: #d33682; }
-
-.reveal a {
-  text-decoration: underline !important; }
 
 .reveal .huge {
   font-size: 7em; }
@@ -285,3 +296,15 @@ body {
 @media print {
   .backgrounds {
     background-color: #000; } }
+
+.reveal {
+  font-weight: 300; }
+  .reveal ul {
+    list-style-type: none; }
+    .reveal ul li {
+      padding: .3em .5em;
+      border-style: solid;
+      border-width: 1px 0;
+      border-color: #332259; }
+      .reveal ul li:not(:first-child) {
+        border-top-width: 0; }

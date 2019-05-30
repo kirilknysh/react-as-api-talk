@@ -36,21 +36,59 @@
 				<section>
 					<section>
 						<h2 class="emphasis">api</h2>
+						<p class="">application programming <span class="fragment highlight-emphasis" data-fragment-index="3">interface</span></p>
+						<blockquote class="fragment" data-fragment-index="1" cite="https://www.redhat.com/en/topics/api/what-are-application-programming-interfaces">
+							&ldquo;It (API) lets your product or service communicate with other products and services without having to know how they’re implemented.&rdquo;
+							<div class="cite"><a href="https://www.redhat.com/en/topics/api/what-are-application-programming-interfaces">redhat</a></div>
+						</blockquote>
+						<blockquote class="fragment" data-fragment-index="2" cite="https://en.wikipedia.org/wiki/Application_programming_interface">
+							&ldquo;A good API makes it easier to develop a computer program by providing all the building blocks, which are then put together by the programmer.&rdquo;
+							<div class="cite"><a href="https://en.wikipedia.org/wiki/Application_programming_interface">wikipedia</a></div>
+						</blockquote>
 						<aside class="notes">
-							what is api?
+							<p>what is api? api stands for "application programming interface".</p>
+							<p>show two cites</p>
+							<p>but let's focus on word "interface";</p>
+						</aside>
+					</section>
+					<section>
+						<h2 class="emphasis">api</h2>
+						<ul>
+							<li class="fragment">get data</li>
+							<li class="fragment">execute action</li>
+						</ul>
+						<aside class="notes">
+							<p>so, basically, api - is a contract, which defines the response on a given request</p>
+							<ul>types of interaction:
+								<li>"get data" - best example - REST GET</li>
+								<li>"execute action" - best example - RPC (Remote procedure call) or REST POST</li>
+							</ul>
+							<p>but what if my "action" - is actually a several-step-action, with multiple visual steps</p>
 						</aside>
 					</section>
 				</section>
 				<section>
 					<h2 class="emphasis">why?</h2>
 					<aside class="notes">
-						why do we need this? Examples
+						why do we need this? Examples (login via facebook)
 					</aside>
 				</section>
 				<section>
-					<h2><span class="emphasis">issues</span> to solve</h2>
+					<h2><span class="emphasis">problems</span> to solve</h2>
 					<aside class="notes">
-						state management, easy to expose
+						state management, easy to expose, bundle size, give the response (notify caller)
+					</aside>
+				</section>
+				<section>
+					<h2>code <span class="emphasis">organization</span></h2>
+					<aside class="notes">
+						CRuP
+					</aside>
+				</section>
+				<section>
+					<h2><span class="emphasis">fusion</span>.js</h2>
+					<aside class="notes">
+						fusion.js
 					</aside>
 				</section>
 				<section class="center">
