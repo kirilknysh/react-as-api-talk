@@ -9,8 +9,8 @@ import HomePresenter from './HomePresenter.js';
 function HomeContainer(props) {
 	return <HomeRouter
 		{...props}
-		renderPresenter={({ match }) => {
-			return <HomePresenter match={match} />;
+		renderPresenter={({ match, location }) => {
+			return <HomePresenter match={match} location={location} />;
 		}}
 	/>;
 }

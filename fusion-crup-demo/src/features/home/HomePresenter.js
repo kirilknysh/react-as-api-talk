@@ -1,6 +1,7 @@
 import React from "react";
 import { styled } from "fusion-plugin-styletron-react";
 
+import { resolvePath } from '../../common/utils.js';
 import { Center, StylishLink } from '../../common/layout.js';
 
 const Container = styled('div', {
@@ -22,17 +23,17 @@ const LinksContainer = styled('div', {
 });
 
 export default function HomePresenter(props) {
-	const { match } = props;
+	const { match, location } = props;
 
 	return (
 		<Center>
 			<Container>
 				<Header>Home</Header>
 				<LinksContainer>
-					<StylishLink to={`${match.url}loading`}>loading</StylishLink>
-					<StylishLink to={`${match.url}error`}>error</StylishLink>
-					<StylishLink to={`${match.url}not-found`}>not found</StylishLink>
-					<StylishLink to={`${match.url}connect`}>connect</StylishLink>
+					<StylishLink to={{ pathname: resolvePath(match.url, './loading'), search: location.search }}>loading</StylishLink>
+					<StylishLink to={{ pathname: resolvePath(match.url, './error'), search: location.search }}>error</StylishLink>
+					<StylishLink to={{ pathname: resolvePath(match.url, './not-found'), search: location.search }}>not found</StylishLink>
+					<StylishLink to={{ pathname: resolvePath(match.url, './connect'), search: location.search }}>connect</StylishLink>
 				</LinksContainer>
 			</Container>
 		</Center>
