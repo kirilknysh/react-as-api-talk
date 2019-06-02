@@ -1,12 +1,20 @@
-const connections = [
-	{ name: 'facebook', route: 'facebook', text: 'Facebook' },
-	{ name: 'twitter', route: 'twitter', text: 'Twitter' },
-	{ name: 'google', route: 'google', text: 'Google' },
-	{ name: 'github', route: 'github', text: 'Github' },
-];
+import connections from '../connections.js';
 
 export function getAvailableConnections(experiments) {
 	return connections.filter((connection) => {
 		return experiments[connection.name];
 	})
+}
+
+export function connectResolver(resolver) {
+	return {
+		resolve() {
+			console.log('connect resolver: resolve');
+			return resolver.resolve();
+		},
+		reject() {
+			console.log('connect resolver: reject');
+			return resolver.reject();
+		},
+	};
 }

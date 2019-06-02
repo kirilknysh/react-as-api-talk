@@ -34,6 +34,7 @@ export default function HomePresenter(props) {
 					<StylishLink to={{ pathname: resolvePath(match.url, './error'), search: location.search }}>error</StylishLink>
 					<StylishLink to={{ pathname: resolvePath(match.url, './not-found'), search: location.search }}>not found</StylishLink>
 					<StylishLink to={{ pathname: resolvePath(match.url, './connect'), search: location.search }}>connect</StylishLink>
+					<StylishLink to={{ pathname: resolvePath(match.url, './verify'), search: location.search }}>verify</StylishLink>
 				</LinksContainer>
 			</Container>
 		</Center>

@@ -12,3 +12,11 @@ export const StylishLink = styled(Link, {
 	textDecoration: 'none',
 	color: '#ccc',
 });
+
+export const StylishButton = styled('button', {
+	background: '#fff',
+	color: '#000',
+	fontSize: 'inherit',
+	padding: '.3em 1em',
+	cursor: 'pointer',
+});

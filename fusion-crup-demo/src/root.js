@@ -6,7 +6,15 @@ import PageNotFound from './common/components/PageNotFound.js';
 import Loading from './common/components/Loading.js';
 import FullscreenError from './common/components/FullscreenError.js';
 
+import { noopResolver, alertResolver } from './features/resolvers';
 import HomeContainer from './features/home/HomeContainer.js';
+
+const ConnectComponentLoader = makeComponentLoader({
+	load: () => import('./features/connect/ConnectContainer.js'),
+});
+const VerifyComponentLoader = makeComponentLoader({
+	load: () => import('./features/verify/VerifyContainer.js'),
+});
 
 function root() {
 	return (
@@ -16,9 +24,15 @@ function root() {
 			<Route exact path='/error' component={FullscreenError} />
 			<Route
 				path='/connect'
-				component={makeComponentLoader({
-					load: () => import('./features/connect/ConnectContainer.js'),
-				})}
+				render={(props) => {
+					return <ConnectComponentLoader {...props} resolver={noopResolver()} />
+				}}
+			/>
+			<Route
+				path='/verify'
+				render={() => {
+					return <VerifyComponentLoader {...props} />
+				}}
 			/>
 			<Route component={PageNotFound} />
 		</Switch>

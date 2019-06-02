@@ -22,21 +22,21 @@ const LinksContainer = styled('div', {
 	justifyContent: 'space-evenly',
 });
 
-function generateLinks(connections, path, search) {
+function generateLinks(connections, path) {
 	return connections.map((connection) => {
-		return <StylishLink to={{ pathname: resolvePath(path, connection.route), search }} key={connection.name}>{connection.text}</StylishLink>;
+		return <StylishLink to={{ pathname: resolvePath(path, connection.route) }} key={connection.name}>{connection.text}</StylishLink>;
 	});
 }
 
-export default function ConnectPresenter(props) {
-	const { match, location, connections } = props;
+export default function VerifyPresenter(props) {
+	const { match, connections } = props;
 
 	return (
 		<Center>
 			<Container>
-				<Header>Connect</Header>
+				<Header>Verify</Header>
 				<LinksContainer>
-					{generateLinks(connections, match.url, location.search)}
+					{generateLinks(connections, match.url)}
 				</LinksContainer>
 			</Container>
 		</Center>
