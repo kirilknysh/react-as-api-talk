@@ -5,6 +5,9 @@
 .reveal a {
   text-decoration: underline !important; }
 
+.reveal video {
+  border: 2px solid #448ac1; }
+
 .reveal .emphasis {
   color: #47b275; }
 
@@ -308,3 +311,5 @@ body {
       border-color: #332259; }
       .reveal ul li:not(:first-child) {
         border-top-width: 0; }
+  .reveal section img {
+    border-color: #448ac1; }

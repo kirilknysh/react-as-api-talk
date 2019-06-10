@@ -69,20 +69,63 @@
 				</section>
 				<section>
 					<h2 class="emphasis">why?</h2>
+					<video src="./assets/imdb_w_fb_short.mov" data-autoplay loop controls></video>
 					<aside class="notes">
-						why do we need this? Examples (login via facebook)
+						why do we need this? Login to imdb via facebook: at some point facebook is loaded, but only
+						required views (login, give access) - no need to load the whole facebook application.
 					</aside>
 				</section>
 				<section>
-					<h2><span class="emphasis">problems</span> to solve</h2>
-					<aside class="notes">
-						state management, easy to expose, bundle size, give the response (notify caller)
-					</aside>
+					<section>
+						<h2>goals</h2>
+						<div style="display: flex; align-items: center">
+							<div style="width: 100%; position: relative;">
+								<img src="assets/atoms_collapse.gif" />
+								<div class="cite" style="position: absolute; bottom: -1rem; text-align: left; font-style: italic;"><a href="https://chorasimilarity.wordpress.com/page/7/">chorasimilarity</a></div>
+							</div>
+							<ul>
+								<li>define the <span class="emphasis">molecule</span></li>
+								<li>make parts as independent as possible</li>
+								<li>build other molecules and molecules chains out of molecules</li>
+							</ul>
+						</div>
+						<aside class="notes">
+							find the smalles independent construction (atom / molecule) (independently developed)
+							which could be easily integrated into any place of the chain.
+							Ability to make "fractals": molecules out of molecules...
+						</aside>
+					</section>
+					<section>
+						<h2><span class="emphasis">problems</span> to solve</h2>
+						<ul>
+							<li class="fragment">molecule interface</li>
+							<li class="fragment">state management (data sharing)</li>
+							<li class="fragment">bundle split</li>
+							<li class="fragment">final resolution</li>
+						</ul>
+						<aside class="notes">
+							<div>
+								molecule interface - integrate with other molecules, combine into chains,
+								combine chains into chains, ...
+							</div>
+							<div>
+								state management - don't fetch same data on different steps in the flow
+							</div>
+							<div>
+								bundle split - deliver only code required for the chain
+							</div>
+							<div>
+								final resolution - as soon as it's api - give the result (resolution) to a caller
+								("send" the response)
+							</div>
+							Here is where the jorney to solve these problems begins
+						</aside>
+					</section>
 				</section>
 				<section>
 					<h2>code <span class="emphasis">organization</span></h2>
 					<aside class="notes">
-						CRuP, resolvers
+						CRuP, resolvers, hocs, react hooks
 					</aside>
 				</section>
 				<section>

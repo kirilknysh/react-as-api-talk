@@ -17,6 +17,7 @@ $safety: #0070fa;
 $yellow: #ffc043;
 $green: #47b275;
 $purple: #7656be;
+$shine: #448ac1;
 
 // Override theme settings (see ../template/settings.scss)
 $mainFont: Helvetica Neue, sans-serif;
@@ -39,6 +40,10 @@ $heading4Size: 1.0em;
 .reveal {
 	a {
 		text-decoration: underline!important;
+	}
+
+	video {
+		border: 2px solid $shine;
 	}
 
 	.emphasis {
@@ -100,6 +105,12 @@ $heading4Size: 1.0em;
 			&:not(:first-child) {
 				border-top-width: 0;
 			}
+		}
+	}
+
+	section {
+		img {
+			border-color: $shine;
 		}
 	}
 }
