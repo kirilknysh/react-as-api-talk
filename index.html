@@ -98,8 +98,8 @@
 						<ul>
 							<li class="fragment">molecule interface</li>
 							<li class="fragment">state management (data sharing)</li>
-							<li class="fragment">bundle split</li>
 							<li class="fragment">final resolution</li>
+							<li class="fragment">bundle split</li>
 						</ul>
 						<aside class="notes">
 							<div>
@@ -110,11 +110,11 @@
 								state management - don't fetch same data on different steps in the flow
 							</div>
 							<div>
-								bundle split - deliver only code required for the chain
-							</div>
-							<div>
 								final resolution - as soon as it's api - give the result (resolution) to a caller
 								("send" the response)
+							</div>
+							<div>
+								bundle split - deliver only code required for the chain
 							</div>
 							Here is where the jorney to solve these problems begins
 						</aside>
@@ -205,15 +205,17 @@
 						<ul>
 							<li class="fragment">redux reducers</li>
 							<li class="fragment"><a href="https://reactjs.org/docs/higher-order-components.html">HOC</a>s</li>
+							<li class="fragment">React <a href="https://reactjs.org/docs/hooks-state.html">useStatae</a></li>
 						</ul>
 						<aside class="notes">
 							<div>store all common data in redux reducers</div>
 							<div>use Higher-Order Components to fetch data and mix it into wrapped component props</div>
+							<div>useState hook for Container's internal state</div>
 						</aside>
 					</section>
 					<section>
 						<h2><span class="emphasis">state</span> management</h2>
-						<div>typical Container</div>
+						<div>single step Container</div>
 						<pre><code class="language-jsx">
 							function ConnectContainer(props) {
 								const { experiments, resolver } = props;
@@ -222,7 +224,7 @@
 								return &lt;ConnectRouter
 									{...props}
 									connections={connections}
-									renderPresenter={({ match, location }) => {
+									renderPresenter={() => {
 										return &lt;ConnectPresenter
 											connections={connections} /&gt;;
 									}}
@@ -236,10 +238,35 @@
 						</code></pre>
 					</section>
 					<section>
-						<h2>code <span class="emphasis">organization</span></h2>
-						<aside class="notes">
-							resolvers, hocs, react hooks
-						</aside>
+						<h2><span class="emphasis">state</span> management</h2>
+						<div>multi step Container</div>
+						<pre><code class="language-jsx">
+							function FacebookConnectContainer(props) {
+								const { resolver } = props;
+								const [step, setStep] = useState({ name: 'confirmation', payload: null });
+
+								return <Router
+									{...props}
+									renderPresenter={() => {
+										switch (step.name) {
+											case 'confirmation':
+												return &lt;ConfirmationContainer resolver={confirmationResolver(resolver, setStep)} /&gt;
+											case 'link':
+												return &lt;LinkContainer resolver={linkResolver(resolver, setStep)} /&gt;
+											case 'finalize':
+												return &lt;FinalizeContainer resolver={finalizeResolver(resolver)} /&gt;
+											default:
+												return props.renderPageNotFound();
+										}
+									}}
+								/>;
+							}
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2><span class="emphasis">resolver</span> concept</h2>
 					</section>
 				</section>
 				<section>

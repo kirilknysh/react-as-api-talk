@@ -1,0 +1,7 @@
+{
+	"home.link.loading": "loading",
+	"home.link.error": "error",
+	"home.link.not_found": "not found",
+	"home.link.connect": "connect",
+	"home.link.verify": "verify"
+}

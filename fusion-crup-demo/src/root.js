@@ -30,7 +30,7 @@ function root() {
 			/>
 			<Route
 				path='/verify'
-				render={() => {
+				render={(props) => {
 					return <VerifyComponentLoader {...props} />
 				}}
 			/>
