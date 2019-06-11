@@ -8,10 +8,8 @@
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="lib/css/prism.css">
 		<link rel="stylesheet" href="css/theme/uberlike.css">
-
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -79,7 +77,7 @@
 					<section>
 						<h2>goals</h2>
 						<div style="display: flex; align-items: center">
-							<div style="width: 100%; position: relative;">
+							<div style="width: 100%; position: relative; text-align: left;">
 								<img src="assets/atoms_collapse.gif" />
 								<div class="cite" style="position: absolute; bottom: -1rem; text-align: left; font-style: italic;"><a href="https://chorasimilarity.wordpress.com/page/7/">chorasimilarity</a></div>
 							</div>
@@ -123,10 +121,126 @@
 					</section>
 				</section>
 				<section>
-					<h2>code <span class="emphasis">organization</span></h2>
-					<aside class="notes">
-						CRuP, resolvers, hocs, react hooks
-					</aside>
+					<section>
+						<h2>code <span class="emphasis">organization</span></h2>
+						<div style="text-align: left; line-height: 200%;">
+							<div class="fragment" data-fragment-index="1"><span class="emphasis" style="font-weight: 700;">C</span>ontainer</div>
+							<div class="fragment" data-fragment-index="2"><span class="emphasis" style="font-weight: 700;">R</span>outer</div>
+							<div style="position: relative;">
+								<div class="fragment fade-in-then-out" data-fragment-index="4"><span class="emphasis" style="font-weight: 700;">a</span>nd</div>
+								<div class="fragment" data-fragment-index="5" style="position: absolute; top: 0;"><span class="emphasis" style="font-weight: 700;">u</span>tilities</div>
+							</div>
+							<div class="fragment" data-fragment-index="3"><span class="emphasis" style="font-weight: 700;">P</span>resenter</div>
+						</div>
+						<aside class="notes">
+							define the molecule - the smallest part
+						</aside>
+					</section>
+					<section>
+						<h2>code <span class="emphasis">organization</span></h2>
+						<div style="text-align: left;">
+							<span class="emphasis" style="font-weight: 700;">C</span>ontainer
+						</div>
+						<ul>
+							<li class="fragment">mandatory</li>
+							<li class="fragment">entry point</li>
+							<li class="fragment">data management</li>
+							<li class="fragment">flow management</li>
+							<li class="fragment">side effects</li>
+						</ul>
+						<aside class="notes">
+							Container - the only mandatory component of CRuP.
+							<div>data management - fetches and prepares all the required data</div>
+							<div>flow management - controls what to show next, when and how to make a request</div>
+							<div>side effects - the only place to have side effects</div>
+						</aside>
+					</section>
+					<section>
+						<h2>code <span class="emphasis">organization</span></h2>
+						<div style="text-align: left;">
+							<span class="emphasis" style="font-weight: 700;">R</span>outer
+						</div>
+						<ul>
+							<li class="fragment">optional</li>
+							<li class="fragment">builds sub-routes</li>
+							<li class="fragment">lazy loading</li>
+						</ul>
+						<aside class="notes">
+							builds sub-routes (with React Router's &lt;Switch /&gt;);
+							May decide on sub-routes lazy loading (bundle switch);
+						</aside>
+					</section>
+					<section>
+						<h2>code <span class="emphasis">organization</span></h2>
+						<div style="text-align: left;">
+							<span class="emphasis" style="font-weight: 700;">P</span>resenter
+						</div>
+						<ul>
+							<li class="fragment">optional</li>
+							<li class="fragment">visual presentation</li>
+							<li class="fragment">redirects</li>
+						</ul>
+						<aside class="notes">
+							visual part of the CRuP;
+							May decide on redirect (with React Router's &lt;Redirect /&gt;)
+						</aside>
+					</section>
+					<section>
+						<h2>code <span class="emphasis">organization</span></h2>
+						<div style="text-align: left;">
+							<span class="emphasis" style="font-weight: 700;">u</span>tilities
+						</div>
+						<ul>
+							<li class="fragment">optional</li>
+							<li class="fragment">pure</li>
+						</ul>
+						<aside class="notes">
+							Keep as pure as possible; Helpers for the components above;
+						</aside>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2><span class="emphasis">state</span> management</h2>
+						<ul>
+							<li class="fragment">redux reducers</li>
+							<li class="fragment"><a href="https://reactjs.org/docs/higher-order-components.html">HOC</a>s</li>
+						</ul>
+						<aside class="notes">
+							<div>store all common data in redux reducers</div>
+							<div>use Higher-Order Components to fetch data and mix it into wrapped component props</div>
+						</aside>
+					</section>
+					<section>
+						<h2><span class="emphasis">state</span> management</h2>
+						<div>typical Container</div>
+						<pre><code class="language-jsx">
+							function ConnectContainer(props) {
+								const { experiments, resolver } = props;
+								const connections = getAvailableConnections(experiments);
+
+								return &lt;ConnectRouter
+									{...props}
+									connections={connections}
+									renderPresenter={({ match, location }) => {
+										return &lt;ConnectPresenter
+											connections={connections} /&gt;;
+									}}
+								/&gt;;
+							}
+
+							export default compose(
+								withPageNotFound,
+								withExperiments
+							)(ConnectContainer);
+						</code></pre>
+					</section>
+					<section>
+						<h2>code <span class="emphasis">organization</span></h2>
+						<aside class="notes">
+							resolvers, hocs, react hooks
+						</aside>
+					</section>
 				</section>
 				<section>
 					<h2><span class="emphasis">fusion</span>.js</h2>
@@ -155,7 +269,6 @@
 				dependencies: [
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true }
 				],
 				// Parallax background image
 				parallaxBackgroundImage: 'assets/ulike-parallax.jpg',
@@ -164,5 +277,6 @@
 				parallaxBackgroundRepeat: 'no-repeat',
 			});
 		</script>
+		<script src="lib/js/prism.js"></script>
 	</body>
 </html>
