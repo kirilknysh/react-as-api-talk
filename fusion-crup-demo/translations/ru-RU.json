@@ -3,5 +3,18 @@
 	"home.link.error": "ошибка",
 	"home.link.not_found": "не найдено",
 	"home.link.connect": "привязать",
-	"home.link.verify": "проверить"
+	"home.link.verify": "проверить",
+
+	"page.header.home": "Домашняя страница",
+	"page.header.connect": "Привязка",
+	"page.header.verify": "Проверка",
+
+	"action.confirm": "Подтвердить",
+	"action.cancel": "Отмена",
+	"action.continue": "Продолжить",
+
+	"connection.header": "${provider} привязка",
+	"connection.progress": "Привязка ${provider}...",
+	"connection.done.success": "${provider} привязка окончена!",
+	"connection.fail.no_connections": "Нет доступных провайдеров"
 }

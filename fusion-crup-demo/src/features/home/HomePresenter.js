@@ -29,7 +29,7 @@ export default function HomePresenter(props) {
 	return (
 		<Center>
 			<Container>
-				<Header>Home</Header>
+				<Header><Translate id="page.header.home" /></Header>
 				<LinksContainer>
 					<StylishLink to={{ pathname: resolvePath(match.url, './loading'), search: location.search }}>
 						<Translate id="home.link.loading" />

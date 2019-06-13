@@ -1,3 +1,5 @@
+export const PROVIDER_NAME = 'Facebook';
+
 export function confirmationResolver(resolver, setStep) {
 	return {
 		resolve() {

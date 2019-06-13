@@ -1,7 +1,10 @@
 import React from "react";
 import { styled } from "fusion-plugin-styletron-react";
+import { Translate } from 'fusion-plugin-i18n-react';
 
 import { Center, StylishButton } from '../../../../common/layout.js';
+
+import { PROVIDER_NAME } from '../utils.js';
 
 const Container = styled('div', {
 	width: '100%',
@@ -28,10 +31,10 @@ export default function ConfirmationContainer(props) {
 	return (
 		<Center>
 			<Container>
-				<Header>Facebook Connect</Header>
+				<Header><Translate id="connection.header" data={{ provider: PROVIDER_NAME }} /></Header>
 				<ButtonsContainer>
-					<StylishButton onClick={resolver.resolve}>Confirm</StylishButton>
-					<StylishButton onClick={resolver.reject}>Cancel</StylishButton>
+					<StylishButton onClick={resolver.resolve}><Translate id="action.confirm" /></StylishButton>
+					<StylishButton onClick={resolver.reject}><Translate id="action.cancel" /></StylishButton>
 				</ButtonsContainer>
 			</Container>
 		</Center>

@@ -33,11 +33,11 @@ function generateLinks(connections, path, search) {
 	});
 }
 
-function renderConnections(match, location, connections) {
+function renderConnections(match, location, translate, connections) {
 	if (connections.length === 0) {
 		return (
 			<ErrorContainer>
-				<InlineError message={'No connections available'} />
+				<InlineError message={translate('connection.fail.no_connections')} />
 			</ErrorContainer>
 		);
 	}
@@ -50,13 +50,13 @@ function renderConnections(match, location, connections) {
 }
 
 export default function ConnectPresenter(props) {
-	const { match, location, connections } = props;
+	const { match, location, translate, connections } = props;
 
 	return (
 		<Center>
 			<Container>
-				<Header>Connect</Header>
-				{renderConnections(match, location, connections)}
+				<Header>{translate('page.header.connect')}</Header>
+				{renderConnections(match, location, translate, connections)}
 			</Container>
 		</Center>
 	);

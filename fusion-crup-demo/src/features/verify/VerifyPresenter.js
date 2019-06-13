@@ -29,12 +29,12 @@ function generateLinks(connections, path) {
 }
 
 export default function VerifyPresenter(props) {
-	const { match, connections } = props;
+	const { match, translate, connections } = props;
 
 	return (
 		<Center>
 			<Container>
-				<Header>Verify</Header>
+				<Header>{translate('page.header.verify')}</Header>
 				<LinksContainer>
 					{generateLinks(connections, match.url)}
 				</LinksContainer>

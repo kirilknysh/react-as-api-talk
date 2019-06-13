@@ -3,5 +3,18 @@
 	"home.link.error": "error",
 	"home.link.not_found": "not found",
 	"home.link.connect": "connect",
-	"home.link.verify": "verify"
+	"home.link.verify": "verify",
+
+	"page.header.home": "Home",
+	"page.header.connect": "Connect",
+	"page.header.verify": "Verify",
+
+	"action.confirm": "Confirm",
+	"action.cancel": "Cancel",
+	"action.continue": "Continue",
+
+	"connection.header": "${provider} Connect",
+	"connection.progress": "Connecting ${provider}...",
+	"connection.done.success": "${provider} Connect Done!",
+	"connection.fail.no_connections": "No connections available"
 }
