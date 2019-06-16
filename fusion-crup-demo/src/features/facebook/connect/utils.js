@@ -1,5 +1,3 @@
-export const PROVIDER_NAME = 'Facebook';
-
 export function confirmationResolver(resolver, setStep) {
 	return {
 		resolve() {
@@ -19,6 +17,9 @@ export function linkResolver(resolver, setStep) {
 		reject() {
 			return resolver.reject();
 		},
+		notify(notification) {
+			return resolver.notify(notification);
+		}
 	};
 }
 

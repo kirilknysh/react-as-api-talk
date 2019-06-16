@@ -9,7 +9,7 @@ function generateRoute(path, resolver, connection) {
 		key={connection.name}
 		path={resolvePath(path, connection.route)}
 		render={(props) => {
-			return <connection.Connect {...props} resolver={resolver} />;
+			return <connection.Connect {...props} resolver={resolver} connection={connection} />;
 		}}
 	/>
 }

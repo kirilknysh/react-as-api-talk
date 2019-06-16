@@ -4,8 +4,6 @@ import { Translate } from 'fusion-plugin-i18n-react';
 
 import { Center, StylishButton } from '../../../../common/layout.js';
 
-import { PROVIDER_NAME } from '../utils.js';
-
 const Container = styled('div', {
 	width: '100%',
 	height: '50vh',
@@ -26,12 +24,12 @@ const ButtonsContainer = styled('div', {
 });
 
 export default function ConfirmationContainer(props) {
-	const { resolver } = props;
+	const { resolver, connection } = props;
 
 	return (
 		<Center>
 			<Container>
-				<Header><Translate id="connection.header" data={{ provider: PROVIDER_NAME }} /></Header>
+				<Header><Translate id="connection.header" data={{ provider: connection.text }} /></Header>
 				<ButtonsContainer>
 					<StylishButton onClick={resolver.resolve}><Translate id="action.confirm" /></StylishButton>
 					<StylishButton onClick={resolver.reject}><Translate id="action.cancel" /></StylishButton>

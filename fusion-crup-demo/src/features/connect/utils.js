@@ -16,5 +16,8 @@ export function connectResolver(resolver) {
 			console.log('connect resolver: reject');
 			return resolver.reject();
 		},
+		notify(notification) {
+			return console.log('connect resolver: notify', notification);
+		}
 	};
 }
