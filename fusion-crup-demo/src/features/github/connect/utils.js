@@ -1,21 +1,10 @@
-export function confirmationResolver(resolver, setStep) {
-	return {
-		resolve() {
-			return setStep({ name: 'link', payload: null });
-		},
-		reject() {
-			return resolver.reject();
-		},
-	};
-}
-
 export function linkResolver(resolver, setStep) {
 	return {
 		resolve() {
-			return setStep({ name: 'finalize', payload: null });
+			return setStep({ name: 'finalize', payload: {} });
 		},
 		reject(error) {
-			return resolver.reject({ error });
+			return setStep({ name: 'finalize', payload: { error } });
 		},
 		notify(notification) {
 			return resolver.notify(notification);

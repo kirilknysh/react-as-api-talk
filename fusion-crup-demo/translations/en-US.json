@@ -16,5 +16,6 @@
 	"connection.header": "${provider} Connect",
 	"connection.progress": "Connecting ${provider}...",
 	"connection.done.success": "${provider} Connect Done!",
+	"connection.done.error": "${provider} Connect Failed",
 	"connection.fail.no_connections": "No connections available"
 }

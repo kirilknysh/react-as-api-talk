@@ -16,5 +16,6 @@
 	"connection.header": "${provider} привязка",
 	"connection.progress": "Привязка ${provider}...",
 	"connection.done.success": "${provider} привязка окончена!",
+	"connection.done.error": "Ошибка при привязка ${provider}",
 	"connection.fail.no_connections": "Нет доступных провайдеров"
 }

@@ -4,7 +4,7 @@ import { assetUrl } from "fusion-core";
 
 import { resolvePath } from '../../common/utils.js';
 import { Center, StylishLink } from '../../common/layout.js';
-import InlineError from '../../common/components/InlineError.js';
+import InlineError, { SIZE } from '../../common/components/InlineError.js';
 
 const Container = styled('div', {
 	width: '100%',
@@ -37,7 +37,7 @@ function renderConnections(match, location, translate, connections) {
 	if (connections.length === 0) {
 		return (
 			<ErrorContainer>
-				<InlineError message={translate('connection.fail.no_connections')} />
+				<InlineError message={translate('connection.fail.no_connections')} size={SIZE.normal} />
 			</ErrorContainer>
 		);
 	}
