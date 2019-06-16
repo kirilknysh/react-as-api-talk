@@ -6,16 +6,22 @@ export function noopResolver() {
 		reject() {
 			console.log('noop resolver: reject');
 		},
+		notify() {
+			console.log('noop resolver: notify');
+		}
 	};
 }
 
 export function alertResolver() {
 	return {
 		resolve() {
-			alert('noop resolver: resolve');
+			alert('alert resolver: resolve');
 		},
 		reject() {
-			alert('noop resolver: reject');
+			alert('alert resolver: reject');
 		},
+		notify() {
+			alert('alert resolver: notify');
+		}
 	};
 }

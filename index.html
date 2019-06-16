@@ -215,7 +215,7 @@
 					</section>
 					<section>
 						<h2><span class="emphasis">state</span> management</h2>
-						<div>single step Container</div>
+						<div>single-step Container</div>
 						<pre><code class="language-jsx">
 							function ConnectContainer(props) {
 								const { experiments, resolver } = props;
@@ -236,16 +236,20 @@
 								withExperiments
 							)(ConnectContainer);
 						</code></pre>
+						<aside class="notes">
+							This is how a single-step container looks like. In other words - a one-shot action.
+							E.g. in this case - render links to next steps
+						</aside>
 					</section>
 					<section>
 						<h2><span class="emphasis">state</span> management</h2>
-						<div>multi step Container</div>
+						<div>multi-step Container</div>
 						<pre><code class="language-jsx">
 							function FacebookConnectContainer(props) {
 								const { resolver } = props;
 								const [step, setStep] = useState({ name: 'confirmation', payload: null });
 
-								return <Router
+								return &lt;Router
 									{...props}
 									renderPresenter={() => {
 										switch (step.name) {
@@ -259,14 +263,49 @@
 												return props.renderPageNotFound();
 										}
 									}}
-								/>;
+								/&gt;;
 							}
 						</code></pre>
+						<aside class="notes">
+							Multi-step container: renders the flow of next sub-steps, controls the sub-steps.
+							In this case - refresh returns back to the first step (router is not used).
+						</aside>
 					</section>
 				</section>
 				<section>
 					<section>
 						<h2><span class="emphasis">resolver</span> concept</h2>
+						<ul>
+							<li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage">postMessage</a></li>
+							<li class="fragment">redirect</li>
+							<li class="fragment">...</li>
+						</ul>
+						<aside class="notes">
+							<div>
+								The final resolution may result in 2 actions: postMessage for iframe integration and
+								redirect for a full page redirect (like in example with facebook login). Or - whaterever
+								else is needed (console.log, alert, ...).
+							</div>
+							<div>
+								Security: csp headers, known origins, embedded configs
+							</div>
+						</aside>
+					</section>
+					<section>
+						<h2><span class="emphasis">resolver</span> api</h2>
+						<ul>
+							<li class="fragment">resolve</li>
+							<li class="fragment">reject</li>
+							<li class="fragment">notify</li>
+						</ul>
+						<aside class="notes">
+							<div>notify is optional</div>
+							<div>
+								resolver is mandatory in CRuP's Container interface.
+								Each CRuP is responsible for its resolution and notifications. Every parent CRuP decides
+								on how to handle resolution from the child CRuP. Root resolver - final resolution.
+							</div>
+						</aside>
 					</section>
 				</section>
 				<section>

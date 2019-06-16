@@ -310,7 +310,8 @@ body {
   font-weight: 300;
   letter-spacing: .06em; }
   .reveal ul {
-    list-style-type: none; }
+    list-style-type: none;
+    margin: 0; }
     .reveal ul li {
       padding: .3em .5em;
       border-style: solid;
