@@ -1,7 +1,7 @@
-import React from "react";
-import { assetUrl } from "fusion-core";
-import { NotFound } from "fusion-plugin-react-router";
-import { styled } from "fusion-plugin-styletron-react";
+import React from 'react';
+import { assetUrl } from 'fusion-core';
+import { NotFound } from 'fusion-plugin-react-router';
+import { styled } from 'fusion-plugin-styletron-react';
 
 const Container = styled('div', {
 	width: '100%',
@@ -28,7 +28,7 @@ export default function PageNotFound(props) {
 		<NotFound>
 			<Container>
 				<ImageContainer>
-					<Image src={assetUrl("../../assets/not-found.gif")} />
+					<Image src={assetUrl('../../assets/not-found.gif')} />
 				</ImageContainer>
 				<Header>404</Header>
 			</Container>

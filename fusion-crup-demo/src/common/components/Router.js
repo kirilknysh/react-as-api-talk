@@ -1,5 +1,5 @@
-import React from "react";
-import { Route, Switch } from "fusion-plugin-react-router";
+import React from 'react';
+import { Route, Switch } from 'fusion-plugin-react-router';
 
 import { resolvePath } from '../utils.js';
 

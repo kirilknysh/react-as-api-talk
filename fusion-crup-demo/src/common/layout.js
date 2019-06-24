@@ -1,4 +1,4 @@
-import { styled } from "fusion-plugin-styletron-react";
+import { styled } from 'fusion-plugin-styletron-react';
 import { Link } from 'fusion-plugin-react-router';
 
 export const Center = styled('div', {
@@ -11,6 +11,11 @@ export const Center = styled('div', {
 export const StylishLink = styled(Link, {
 	textDecoration: 'none',
 	color: '#ccc',
+});
+
+export const StylishLinkLike = styled('span', {
+	color: '#ccc',
+	cursor: 'pointer',
 });
 
 export const StylishButton = styled('button', {

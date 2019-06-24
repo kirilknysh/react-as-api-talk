@@ -9,5 +9,6 @@ module.exports = {
   rules: {
 	'prettier/prettier': 'off',
 	'semi': ['error', 'always'],
+	quotes: ['error', 'single']
   },
 };

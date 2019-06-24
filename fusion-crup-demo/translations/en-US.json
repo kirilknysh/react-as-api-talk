@@ -1,6 +1,7 @@
 {
 	"home.link.loading": "loading",
 	"home.link.error": "error",
+	"home.link.success": "success",
 	"home.link.not_found": "not found",
 	"home.link.connect": "connect",
 	"home.link.verify": "verify",
@@ -17,5 +18,9 @@
 	"connection.progress": "Connecting ${provider}...",
 	"connection.done.success": "${provider} Connect Done!",
 	"connection.done.error": "${provider} Connect Failed",
-	"connection.fail.no_connections": "No connections available"
+	"connection.fail.no_connections": "No connections available",
+
+	"verification.success": "${provider} verified!",
+
+	"//": "new line stub"
 }

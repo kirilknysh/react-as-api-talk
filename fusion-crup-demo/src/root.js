@@ -5,6 +5,7 @@ import { makeComponentLoader } from './common/utils.js';
 import PageNotFound from './common/components/PageNotFound.js';
 import Loading from './common/components/Loading.js';
 import FullscreenError from './common/components/FullscreenError.js';
+import FullscreenSuccess from './common/components/FullscreenSuccess.js';
 
 import { noopResolver } from './features/resolvers';
 import HomeContainer from './features/home/HomeContainer.js';
@@ -22,6 +23,7 @@ function root() {
 			<Route exact path='/' component={HomeContainer} />
 			<Route exact path='/loading' component={Loading} />
 			<Route exact path='/error' component={FullscreenError} />
+			<Route exact path='/success' component={FullscreenSuccess} />
 			<Route
 				path='/connect'
 				render={(props) => {
@@ -31,7 +33,7 @@ function root() {
 			<Route
 				path='/verify'
 				render={(props) => {
-					return <VerifyComponentLoader {...props} />;
+					return <VerifyComponentLoader {...props} resolver={noopResolver()} />;
 				}}
 			/>
 			<Route component={PageNotFound} />

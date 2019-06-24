@@ -1,6 +1,7 @@
 {
 	"home.link.loading": "индикатор загрузки",
 	"home.link.error": "ошибка",
+	"home.link.success": "успех",
 	"home.link.not_found": "не найдено",
 	"home.link.connect": "привязать",
 	"home.link.verify": "проверить",
@@ -17,5 +18,9 @@
 	"connection.progress": "Привязка ${provider}...",
 	"connection.done.success": "${provider} привязка окончена!",
 	"connection.done.error": "Ошибка при привязка ${provider}",
-	"connection.fail.no_connections": "Нет доступных провайдеров"
+	"connection.fail.no_connections": "Нет доступных провайдеров",
+
+	"verification.success": "${provider} проверен!",
+
+	"//": "new line stub"
 }
