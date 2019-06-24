@@ -138,7 +138,7 @@
 					</section>
 					<section>
 						<h2>code <span class="emphasis">organization</span></h2>
-						<div style="text-align: left;">
+						<div style="text-align: left; margin-bottom: 1em;">
 							<span class="emphasis" style="font-weight: 700;">C</span>ontainer
 						</div>
 						<ul>
@@ -157,7 +157,7 @@
 					</section>
 					<section>
 						<h2>code <span class="emphasis">organization</span></h2>
-						<div style="text-align: left;">
+						<div style="text-align: left; margin-bottom: 1em;">
 							<span class="emphasis" style="font-weight: 700;">R</span>outer
 						</div>
 						<ul>
@@ -172,7 +172,7 @@
 					</section>
 					<section>
 						<h2>code <span class="emphasis">organization</span></h2>
-						<div style="text-align: left;">
+						<div style="text-align: left; margin-bottom: 1em;">
 							<span class="emphasis" style="font-weight: 700;">P</span>resenter
 						</div>
 						<ul>
@@ -187,7 +187,7 @@
 					</section>
 					<section>
 						<h2>code <span class="emphasis">organization</span></h2>
-						<div style="text-align: left;">
+						<div style="text-align: left; margin-bottom: 1em;">
 							<span class="emphasis" style="font-weight: 700;">u</span>tilities
 						</div>
 						<ul>
@@ -317,10 +317,129 @@
 					</section>
 				</section>
 				<section>
-					<h2><span class="emphasis">fusion</span>.js</h2>
-					<aside class="notes">
-						fusion.js
-					</aside>
+					<section>
+						<h2><a href="https://fusionjs.com/">fusion.js</a></h2>
+						<ul>
+							<li class="fragment"><span class="emphasis">plugin</span>-based</li>
+							<li class="fragment">universal</li>
+							<li class="fragment">open source</li>
+							<li class="fragment">production ready out-of-the-box</li>
+						</ul>
+						<aside class="notes">
+							support react SO FAR, potentially - any other framework
+							TODO: performance
+						</aside>
+					</section>
+					<section>
+						<h2><span class="emphasis">fusion</span>.js</h2>
+						<div style="text-align: left; margin-bottom: 1em;">
+							plugin-based
+						</div>
+						TODO
+						<aside class="notes">
+
+						</aside>
+					</section>
+					<section>
+						<h2><span class="emphasis">fusion</span>.js</h2>
+						<div style="text-align: left; margin-bottom: 1em;">
+							universal
+						</div>
+						<div style="display: flex;">
+							<pre style="width: 20%;"><code style="text-align: center;" class="language-js">__DEV__</code></pre>
+							<pre style="width: 20%;"><code style="text-align: center;" class="language-js">__NODE__</code></pre>
+							<pre style="width: 20%;"><code style="text-align: center;" class="language-js">__BROWSER__</code></pre>
+						</div>
+						<pre class="fragment"><code class="language-js">
+							export default function registerApp(app) {
+								app.register(RPCToken, RPC);
+
+								if (__NODE__) {
+									app.middleware(resetCss);
+									app.register(RPCHandlersToken, handlers);
+								} else {
+									app.register(FetchToken, window.fetch);
+								}
+							}
+						</code></pre>
+						<aside class="notes">
+							<div>Could run on both: server and client. Just write code, fusion takes the rest.</div>
+							<div>Based on 3 variables.</div>
+							<div>Code example.</div>
+						</aside>
+					</section>
+					<section>
+						<h2><span class="emphasis">fusion</span>.js</h2>
+						<div style="text-align: left; margin-bottom: 1em;">
+							open source
+						</div>
+						<div style="height: 30vh; display: flex; justify-content: center; align-items: center;">
+							<a href="https://github.com/fusionjs/fusionjs">https://github.com/fusionjs/fusionjs</a>
+						</div>
+						<aside class="notes">
+							all code on github (including plugins). monorepo
+						</aside>
+					</section>
+					<section>
+						<h2><span class="emphasis">fusion</span>.js</h2>
+						<div style="text-align: left; margin-bottom: 1em;">
+							production ready
+						</div>
+						<ul>
+							<li>bundle split</li>
+							<li>hot module reload</li>
+							<li>tree shaking</li>
+							<li>testing (Enzyme, Jest)</li>
+							<li>plugins plugins plugins</li>
+						</ul>
+						<aside class="notes">
+							plugin for everything: styletron, rpc, graphql, redux (+ hydration)
+						</aside>
+					</section>
+					<section>
+						<h2><span class="emphasis">fusion</span>.js</h2>
+						<div style="text-align: left; margin-bottom: 1em;">
+							bundle split
+						</div>
+						TODO (prepared, split)
+						<aside class="notes">
+
+						</aside>
+					</section>
+					<section>
+						<h2><span class="emphasis">fusion</span>.js</h2>
+						<div style="text-align: left; margin-bottom: 1em;">
+							plugins
+						</div>
+						<div style="position: relative;">
+							<img src="assets/plugins-everywhere.jpg" alt="plugins everywhere" class="fragment fade-out" data-fragment-index="1" />
+							<pre style="position: absolute; top: 0;" class="fragment" data-fragment-index="1"><code class="language-js">
+								export default () => {
+									const app = new App(root);
+
+									app.register(Styletron);
+									app.register(Router);
+									app.register(I18nToken, I18n);
+									__NODE__ && app.register(I18nLoaderToken, createI18nLoader());
+									app.register(UniversalEventsToken, UniversalEvents);
+
+									app.register(RPCToken, RPC);
+
+									if (__NODE__) {
+										app.middleware(resetCss);
+										app.register(RPCHandlersToken, handlers);
+									} else {
+										app.register(FetchToken, window.fetch);
+									}
+
+									return app;
+								};
+							</code></pre>
+						</div>
+						<aside class="notes">
+
+						</aside>
+					</section>
 				</section>
 				<section class="center">
 					<div class="emphasis huge">q&a</div>

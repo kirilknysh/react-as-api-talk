@@ -328,4 +328,5 @@ body {
     padding: .4em;
     font-size: .45em; }
     .reveal pre code {
-      max-height: fit-content; }
+      max-height: fit-content;
+      line-height: 1.3em; }
