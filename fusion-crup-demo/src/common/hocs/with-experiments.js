@@ -27,6 +27,6 @@ export default function withExperiments(Component) {
 	return function WithExperiments(props) {
 		return <ExperimentsContainer
 			render={renderProps => <Component {...props} {...renderProps} />}
-		/>
+		/>;
 	};
 }

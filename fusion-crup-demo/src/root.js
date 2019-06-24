@@ -1,12 +1,12 @@
 import React from 'react';
-import { Route, Switch, withRouter } from 'fusion-plugin-react-router';
+import { Route, Switch } from 'fusion-plugin-react-router';
 
 import { makeComponentLoader } from './common/utils.js';
 import PageNotFound from './common/components/PageNotFound.js';
 import Loading from './common/components/Loading.js';
 import FullscreenError from './common/components/FullscreenError.js';
 
-import { noopResolver, alertResolver } from './features/resolvers';
+import { noopResolver } from './features/resolvers';
 import HomeContainer from './features/home/HomeContainer.js';
 
 const ConnectComponentLoader = makeComponentLoader({
@@ -25,13 +25,13 @@ function root() {
 			<Route
 				path='/connect'
 				render={(props) => {
-					return <ConnectComponentLoader {...props} resolver={noopResolver()} />
+					return <ConnectComponentLoader {...props} resolver={noopResolver()} />;
 				}}
 			/>
 			<Route
 				path='/verify'
 				render={(props) => {
-					return <VerifyComponentLoader {...props} />
+					return <VerifyComponentLoader {...props} />;
 				}}
 			/>
 			<Route component={PageNotFound} />

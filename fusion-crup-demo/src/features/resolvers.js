@@ -1,12 +1,17 @@
+import {window} from 'global';
+
 export function noopResolver() {
 	return {
 		resolve() {
+			// eslint-disable-next-line no-console
 			console.log('noop resolver: resolve');
 		},
 		reject() {
+			// eslint-disable-next-line no-console
 			console.log('noop resolver: reject');
 		},
 		notify() {
+			// eslint-disable-next-line no-console
 			console.log('noop resolver: notify');
 		}
 	};
@@ -15,13 +20,13 @@ export function noopResolver() {
 export function alertResolver() {
 	return {
 		resolve() {
-			alert('alert resolver: resolve');
+			window.alert('alert resolver: resolve');
 		},
 		reject() {
-			alert('alert resolver: reject');
+			window.alert('alert resolver: reject');
 		},
 		notify() {
-			alert('alert resolver: notify');
+			window.alert('alert resolver: notify');
 		}
 	};
 }

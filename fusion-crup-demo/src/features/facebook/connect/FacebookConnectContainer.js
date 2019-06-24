@@ -18,11 +18,11 @@ function FacebookConnectContainer(props) {
 		renderPresenter={() => {
 			switch (step.name) {
 				case 'confirmation':
-					return <ConfirmationContainer resolver={confirmationResolver(resolver, setStep)} connection={connection} />
+					return <ConfirmationContainer resolver={confirmationResolver(resolver, setStep)} connection={connection} />;
 				case 'link':
-					return <LinkContainer resolver={linkResolver(resolver, setStep)} connection={connection} />
+					return <LinkContainer resolver={linkResolver(resolver, setStep)} connection={connection} />;
 				case 'finalize':
-					return <FinalizeContainer resolver={finalizeResolver(resolver)} connection={connection} />
+					return <FinalizeContainer resolver={finalizeResolver(resolver)} connection={connection} />;
 				default:
 					return props.renderPageNotFound();
 			}

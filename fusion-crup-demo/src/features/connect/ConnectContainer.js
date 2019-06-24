@@ -3,7 +3,7 @@ import { compose } from 'redux';
 import {withTranslations} from 'fusion-plugin-i18n-react';
 
 import withPageNotFound from '../../common/hocs/with-page-not-found.js';
-import withExperiments from '../../common/hocs/with-experiments.js'
+import withExperiments from '../../common/hocs/with-experiments.js';
 
 import ConnectRouter from './ConnectRouter.js';
 import ConnectPresenter from './ConnectPresenter.js';

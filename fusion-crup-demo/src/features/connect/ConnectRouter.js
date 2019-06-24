@@ -11,7 +11,7 @@ function generateRoute(path, resolver, connection) {
 		render={(props) => {
 			return <connection.Connect {...props} resolver={resolver} connection={connection} />;
 		}}
-	/>
+	/>;
 }
 
 function renderChildRoutes(path, resolver, connections) {

@@ -6,7 +6,7 @@ import Router from "../../../common/components/Router.js";
 
 import LinkContainer from '../../link/LinkContainer.js';
 import FinalizeContainer from './finalize/FinalizeContainer.js';
-import { confirmationResolver, linkResolver, finalizeResolver } from './utils.js';
+import { linkResolver, finalizeResolver } from './utils.js';
 
 function GithubConnectContainer(props) {
 	const { resolver, connection } = props;
@@ -17,9 +17,9 @@ function GithubConnectContainer(props) {
 		renderPresenter={() => {
 			switch (step.name) {
 				case 'link':
-					return <LinkContainer resolver={linkResolver(resolver, setStep)} connection={connection} />
+					return <LinkContainer resolver={linkResolver(resolver, setStep)} connection={connection} />;
 				case 'finalize':
-					return <FinalizeContainer resolver={finalizeResolver(resolver)} connection={connection} result={step.payload} />
+					return <FinalizeContainer resolver={finalizeResolver(resolver)} connection={connection} result={step.payload} />;
 				default:
 					return props.renderPageNotFound();
 			}
