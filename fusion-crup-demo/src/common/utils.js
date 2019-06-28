@@ -44,3 +44,7 @@ export function resolvePath(base, ...adds) {
 
 	return resolvePath(newBase, ...adds);
 }
+
+export function identity(x) {
+	return x;
+}
