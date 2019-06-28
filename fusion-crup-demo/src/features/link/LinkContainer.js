@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 import { compose } from 'redux';
 import { Translate } from 'fusion-plugin-i18n-react';
 

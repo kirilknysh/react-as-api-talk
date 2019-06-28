@@ -20,12 +20,12 @@ const VerifyComponentLoader = makeComponentLoader({
 function root() {
 	return (
 		<Switch>
-			<Route exact path='/' component={HomeContainer} />
-			<Route exact path='/loading' component={Loading} />
-			<Route exact path='/error' component={FullscreenError} />
-			<Route exact path='/success' component={FullscreenSuccess} />
+			<Route exact path="/" component={HomeContainer} />
+			<Route exact path="/loading" component={Loading} />
+			<Route exact path="/error" component={FullscreenError} />
+			<Route exact path="/success" component={FullscreenSuccess} />
 			<Route
-				path='/connect'
+				path="/connect"
 				render={(props) => {
 					return <ConnectComponentLoader {...props} resolver={noopResolver()} />;
 				}}

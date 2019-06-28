@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import PageNotFound from "../components/PageNotFound.js";
+import PageNotFound from '../components/PageNotFound.js';
 
 function renderPageNotFound() {
 	return <PageNotFound />;

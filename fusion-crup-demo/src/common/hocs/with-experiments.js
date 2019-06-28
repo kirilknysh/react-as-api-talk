@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 import { compose } from 'redux';
-import { withRouter } from "fusion-plugin-react-router";
+import { withRouter } from 'fusion-plugin-react-router';
 
 function parseExperiments(location) {
 	const urlSearchParams = new URLSearchParams(location.search);

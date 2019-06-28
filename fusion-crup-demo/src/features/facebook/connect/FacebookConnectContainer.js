@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { compose } from 'redux';
 
 import withPageNotFound from '../../../common/hocs/with-page-not-found.js';
-import Router from "../../../common/components/Router.js";
+import Router from '../../../common/components/Router.js';
 
 import LinkContainer from '../../link/LinkContainer.js';
 import ConfirmationContainer from './confirmation/ConfirmationContainer.js';

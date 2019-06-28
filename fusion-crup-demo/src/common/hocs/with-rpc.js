@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext } from 'react';
 import { compose } from 'redux';
 import { FusionContext, useService } from 'fusion-react';
 import { RPCToken } from 'fusion-plugin-rpc';

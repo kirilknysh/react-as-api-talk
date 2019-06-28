@@ -1,6 +1,6 @@
-import React from "react";
-import { assetUrl } from "fusion-core";
-import { styled } from "fusion-plugin-styletron-react";
+import React from 'react';
+import { assetUrl } from 'fusion-core';
+import { styled } from 'fusion-plugin-styletron-react';
 
 export const SIZE = {
 	small: 'small',
@@ -52,7 +52,7 @@ export default function InlineError(props) {
 
 	return (
 		<Container>
-			<Icon src={assetUrl("../../assets/warning.png")} size={size} />
+			<Icon src={assetUrl('../../assets/warning.png')} size={size} />
 			<Message size={size}>{message || ''}</Message>
 		</Container>
 	);

@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 import { Route } from 'fusion-plugin-react-router';
 
 import { resolvePath } from '../../common/utils.js';
-import Router from "../../common/components/Router.js";
+import Router from '../../common/components/Router.js';
 
 function generateRoute(path, resolver, connection) {
 	return <Route

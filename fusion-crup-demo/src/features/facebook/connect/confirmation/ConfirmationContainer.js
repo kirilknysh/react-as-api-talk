@@ -1,5 +1,5 @@
-import React from "react";
-import { styled } from "fusion-plugin-styletron-react";
+import React from 'react';
+import { styled } from 'fusion-plugin-styletron-react';
 import { Translate } from 'fusion-plugin-i18n-react';
 
 import { Center, StylishButton } from '../../../../common/layout.js';
