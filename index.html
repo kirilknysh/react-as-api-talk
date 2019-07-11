@@ -499,11 +499,50 @@
 						<div style="text-align: left; margin-bottom: 1em;">
 							plugins
 						</div>
-						<div>
-							TODO: plugin example
-						</div>
+						<pre><code class="language-js">
+							const plugin = createPlugin({
+								deps: {},
+								provides: (deps) => {
+									return {};
+								},
+								middleware: (deps, service) => {
+									return (ctx, next) => {
+										return next();
+									};
+								},
+								cleanup: (service) => {}
+							});
+						</code></pre>
 						<aside class="notes">
+							plugin api
+						</aside>
+					</section>
+					<section>
+						<h2><span class="emphasis">fusion</span>.js</h2>
+						<div style="text-align: left; margin-bottom: 1em;">
+							plugins
+						</div>
+						<pre><code class="language-js">
+							import { createPlugin } from 'fusion-core';
+							import { LoggerToken } from 'fusion-tokens';
 
+							export default createPlugin({
+								deps: { logger: LoggerToken },
+								middleware(deps) {
+									const { logger } = deps;
+
+									return async function requestTimeMiddleware(ctx, next) {
+										const start = Date.now();
+
+										await next();
+
+										__NODE__ && logger.verbose(`Request done in ${Date.now() - start}ms; url = ${ctx.url}`);
+									};
+								},
+							});
+						</code></pre>
+						<aside class="notes">
+							lazy linking based on tokens;
 						</aside>
 					</section>
 				</section>
