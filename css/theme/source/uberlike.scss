@@ -91,6 +91,9 @@ $heading4Size: 1.0em;
 	.semi-huge {
 		font-size: 5em;
 	}
+	.tiny {
+		font-size: .5em;
+	}
 }
 
 // Theme template ------------------------------
@@ -129,6 +132,8 @@ $heading4Size: 1.0em;
 		border: 1px solid $shine;
 		padding: .4em;
 		font-size: .45em;
+		background: $backgroundColor;
+		margin: 0 auto;
 
 		code {
 			max-height: fit-content;

@@ -104,7 +104,7 @@
 						<aside class="notes">
 							<div>
 								molecule interface - integrate with other molecules, combine into chains,
-								combine chains into chains, ...
+								combine chains into chains, ... The actual API
 							</div>
 							<div>
 								state management - don't fetch same data on different steps in the flow
@@ -205,7 +205,7 @@
 						<ul>
 							<li class="fragment">redux reducers</li>
 							<li class="fragment"><a href="https://reactjs.org/docs/higher-order-components.html">HOC</a>s</li>
-							<li class="fragment">React <a href="https://reactjs.org/docs/hooks-state.html">useStatae</a></li>
+							<li class="fragment">React <a href="https://reactjs.org/docs/hooks-state.html">useState</a></li>
 						</ul>
 						<aside class="notes">
 							<div>store all common data in redux reducers</div>
@@ -225,8 +225,7 @@
 									{...props}
 									connections={connections}
 									renderPresenter={() => {
-										return &lt;ConnectPresenter
-											connections={connections} /&gt;;
+										return &lt;ConnectPresenter connections={connections} /&gt;;
 									}}
 								/&gt;;
 							}
@@ -327,7 +326,6 @@
 						</ul>
 						<aside class="notes">
 							support react SO FAR, potentially - any other framework
-							TODO: performance
 						</aside>
 					</section>
 					<section>
@@ -335,9 +333,20 @@
 						<div style="text-align: left; margin-bottom: 1em;">
 							plugin-based
 						</div>
-						TODO
+						<div style="position: relative; width: 100%; height: 50vh; display: flex; justify-content: center;">
+							<div style="position: absolute; height: 100%; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;" class="fragment fade-in-then-out">
+								<img src="assets/fusion-onion.jpg"/>
+								<div class="cite" style="font-style: italic;"><a href="https://www.atmmarketplace.com/articles/the-onion-model-has-9-layers-of-security-how-many-does-your-atm-fleet-have/">atmmarketplace</a></div>
+							</div>
+							<div style="position: absolute; height: 100%; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;" class="fragment">
+								<img src="assets/fusion-plugins-layers.webp" />
+								<div class="cite" style="position: absolute; bottom: -1rem; text-align: left; font-style: italic;"><a href="https://iruntheinternet.com/09444">iruntheinternet</a></div>
+							</div>
+						</div>
 						<aside class="notes">
-
+							<div>Each request goes through plugins up to renderer and returns back;</div>
+							<div>Similar to express middlewares</div>
+							<div>plugins order - dependecies go before you; registration is lazy;</div>
 						</aside>
 					</section>
 					<section>
@@ -373,8 +382,11 @@
 						<div style="text-align: left; margin-bottom: 1em;">
 							open source
 						</div>
-						<div style="height: 30vh; display: flex; justify-content: center; align-items: center;">
+						<div style="height: 50vh; display: flex; justify-content: center; align-items: center; flex-direction: column;">
 							<a href="https://github.com/fusionjs/fusionjs">https://github.com/fusionjs/fusionjs</a>
+							<a href="https://eng.uber.com/fusionjs/">https://eng.uber.com/fusionjs/</a>
+							<a href="https://medium.com/@brandoncc/an-introduction-to-fusion-js-part-1-dea414bcae37">medium.com</a>
+							<a href="https://www.youtube.com/watch?v=wZ0UDg1n9BQ">youtube</a>
 						</div>
 						<aside class="notes">
 							all code on github (including plugins). monorepo
@@ -389,7 +401,7 @@
 							<li>bundle split</li>
 							<li>hot module reload</li>
 							<li>tree shaking</li>
-							<li>testing (Enzyme, Jest)</li>
+							<li>testing (Enzyme, Jest, Puppeteer)</li>
 							<li>plugins plugins plugins</li>
 						</ul>
 						<aside class="notes">
@@ -401,9 +413,51 @@
 						<div style="text-align: left; margin-bottom: 1em;">
 							bundle split
 						</div>
-						TODO (prepared, split)
-						<aside class="notes">
+						<pre><code class="language-js">
+							import { split } from 'fusion-react';
 
+							split({
+								LoadingComponent: (&lt;Loader /&gt;),
+								ErrorComponent: (&lt;Error /&gt;),
+								load: () => import('./lazy/loaded/Container.js')
+							});
+						</code></pre>
+						<aside class="notes">
+							<div>Easy; similar to WebPack's `import`;</div>
+							<div>returns a Component => just replace static one with this call</div>
+						</aside>
+					</section>
+					<section>
+						<h2><span class="emphasis">fusion</span>.js</h2>
+						<div style="text-align: left; margin-bottom: 1em;">
+							bundle split
+						</div>
+						<div>
+							<div class="tiny" style="text-align: left;">single:</div>
+							<pre><code class="language-js">
+								&lt;Route key={'choose'} path={resolvePath(props.match.path, './choose')}
+									render={(routeProps) => {
+										return &lt;ChooseContainer {...routeProps} resolver={resolver} /&gt;;
+									}}
+								/&gt;,
+							</code></pre>
+							<div class="tiny" style="text-align: left;">split:</div>
+							<pre><code class="language-js">
+								import { split } from 'fusion-react';
+
+								&lt;Route key={'choose'} path={resolvePath(props.match.path, './choose')}
+									render={(routeProps) => {
+										const ChooseContainer = split({
+											load: () => import('./choose/ChooseContainer.js'),
+											LoadingComponent: Loading,
+											ErrorComponent: FullscreenError,
+										});
+										return &lt;ChooseContainer {...routeProps} resolver={resolver} /&gt;;
+									}}
+								/&gt;,
+							</code></pre>
+						</div>
+						<aside class="notes">
 						</aside>
 					</section>
 					<section>

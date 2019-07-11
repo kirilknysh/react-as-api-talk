@@ -64,6 +64,7 @@ const escaped = __NODE__ ? html`
 ` : null;
 
 export default (ctx, next) => {
+	// if ctx.element - this is a request to HTML file
 	if (escaped && ctx.element) {
 		ctx.template.head.push(escaped);
 	}

@@ -41,6 +41,9 @@
 .reveal .semi-huge {
   font-size: 5em; }
 
+.reveal .tiny {
+  font-size: .5em; }
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -326,7 +329,9 @@ body {
     letter-spacing: 0.01em;
     border: 1px solid #448ac1;
     padding: .4em;
-    font-size: .45em; }
+    font-size: .45em;
+    background: #000;
+    margin: 0 auto; }
     .reveal pre code {
       max-height: fit-content;
       line-height: 1.3em; }

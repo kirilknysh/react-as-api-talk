@@ -1,4 +1,4 @@
-import {window} from 'global';
+import { window } from 'global';
 import RPC, { RPCToken, RPCHandlersToken } from 'fusion-plugin-rpc';
 import { FetchToken } from 'fusion-tokens';
 
