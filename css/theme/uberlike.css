@@ -335,3 +335,8 @@ body {
     .reveal pre code {
       max-height: fit-content;
       line-height: 1.3em; }
+    .reveal pre.line-numbers code {
+      overflow: visible;
+      padding: 0; }
+  .reveal .slides section blockquote {
+    width: 100%; }

@@ -216,7 +216,7 @@
 					<section>
 						<h2><span class="emphasis">state</span> management</h2>
 						<div>single-step Container</div>
-						<pre><code class="language-jsx">
+						<pre class="line-numbers"><code class="language-jsx">
 							function ConnectContainer(props) {
 								const { experiments, resolver } = props;
 								const connections = getAvailableConnections(experiments);
@@ -243,7 +243,7 @@
 					<section>
 						<h2><span class="emphasis">state</span> management</h2>
 						<div>multi-step Container</div>
-						<pre><code class="language-jsx">
+						<pre class="line-numbers"><code class="language-jsx">
 							function FacebookConnectContainer(props) {
 								const { resolver } = props;
 								const [step, setStep] = useState({ name: 'confirmation', payload: null });
@@ -316,16 +316,14 @@
 					</section>
 				</section>
 				<section>
-					<section>
+					<section class="center">
 						<h2><a href="https://fusionjs.com/">Fusion.js</a></h2>
-						<ul>
-							<li class="fragment"><span class="emphasis">plugin</span>-based</li>
-							<li class="fragment">universal</li>
-							<li class="fragment">open source</li>
-							<li class="fragment">production ready out-of-the-box</li>
-						</ul>
 						<aside class="notes">
-							support react SO FAR, potentially - any other framework
+							<ul>
+								<li>framework</li>
+								<li>SSR</li>
+							</ul>
+							support react SO FAR, potentially - any other framework (which supports render-to-string and hydration)
 						</aside>
 					</section>
 					<section>
@@ -359,9 +357,13 @@
 							<pre style="width: 20%;"><code style="text-align: center;" class="language-js">__NODE__</code></pre>
 							<pre style="width: 20%;"><code style="text-align: center;" class="language-js">__BROWSER__</code></pre>
 						</div>
-						<pre class="fragment"><code class="language-js">
+						<pre class="fragment line-numbers"><code class="language-js">
 							export default function registerApp(app) {
 								app.register(RPCToken, RPC);
+
+								if (__DEV__) {
+									app.middleware(logEachRequest);
+								}
 
 								if (__NODE__) {
 									app.middleware(resetCss);
@@ -398,6 +400,7 @@
 							production ready
 						</div>
 						<ul>
+							<li>zero configuration</li>
 							<li>bundle split</li>
 							<li>hot module reload</li>
 							<li>tree shaking</li>
@@ -405,7 +408,8 @@
 							<li>plugins plugins plugins</li>
 						</ul>
 						<aside class="notes">
-							plugin for everything: styletron, rpc, graphql, redux (+ hydration)
+							<div>plugin for everything: styletron, rpc, graphql, redux (+ hydration)</div>
+							<div>a bit more details about bundle split and plugins</div>
 						</aside>
 					</section>
 					<section>
@@ -433,25 +437,17 @@
 							bundle split
 						</div>
 						<div>
-							<div class="tiny" style="text-align: left;">single:</div>
-							<pre><code class="language-js">
-								&lt;Route key={'choose'} path={resolvePath(props.match.path, './choose')}
-									render={(routeProps) => {
-										return &lt;ChooseContainer {...routeProps} resolver={resolver} /&gt;;
-									}}
-								/&gt;,
-							</code></pre>
-							<div class="tiny" style="text-align: left;">split:</div>
-							<pre><code class="language-js">
-								import { split } from 'fusion-react';
+							<pre><code class="language-git">
+								+ import { split } from 'fusion-react';
 
 								&lt;Route key={'choose'} path={resolvePath(props.match.path, './choose')}
 									render={(routeProps) => {
-										const ChooseContainer = split({
-											load: () => import('./choose/ChooseContainer.js'),
-											LoadingComponent: Loading,
-											ErrorComponent: FullscreenError,
-										});
+								-		return &lt;ChooseContainer {...routeProps} resolver={resolver} /&gt;;
+								+		const ChooseContainer = split({
+								+			load: () => import('./choose/ChooseContainer.js'),
+								+			LoadingComponent: Loading,
+								+			ErrorComponent: FullscreenError,
+								+		});
 										return &lt;ChooseContainer {...routeProps} resolver={resolver} /&gt;;
 									}}
 								/&gt;,
@@ -491,7 +487,8 @@
 							</code></pre>
 						</div>
 						<aside class="notes">
-
+							<div>>How a typical Fusion.js app looks like</div>
+							<div>So, what is a plugin?</div>
 						</aside>
 					</section>
 					<section>
@@ -522,7 +519,7 @@
 						<div style="text-align: left; margin-bottom: 1em;">
 							plugins
 						</div>
-						<pre><code class="language-js">
+						<pre class="line-numbers"><code class="language-js">
 							import { createPlugin } from 'fusion-core';
 							import { LoggerToken } from 'fusion-tokens';
 

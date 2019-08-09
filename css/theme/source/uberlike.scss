@@ -139,5 +139,20 @@ $heading4Size: 1.0em;
 			max-height: fit-content;
 			line-height: 1.3em;
 		}
+
+		&.line-numbers {
+			code {
+				overflow: visible;
+				padding: 0;
+			}
+		}
+	}
+
+	.slides {
+		section {
+			blockquote {
+				width: 100%;
+			}
+		}
 	}
 }
