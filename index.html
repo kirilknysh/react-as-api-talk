@@ -28,6 +28,7 @@
 					<h3>and how <a href="https://fusionjs.com/" class="emphasis">Fusion.js</a> can help</h3>
 					<p style="font-size: .6em;">by <a href="https://kirilknysh.github.io/">Kiril Knysh</a></p>
 					<aside class="notes">
+						<div>generic approach, framework agnostic</div>
 						Web applications went far beyond regular web sites. They are no longer just static (or dynamic) content presentations but rather complex systems with well defined business roles and goals. This is a story about how to transform your (pretty sure huge) React based application into a set of well separated single responsible features (endpoints), make them reusable, easy pluggable and maintainable.
 					</aside>
 				</section>
@@ -69,8 +70,13 @@
 					<h2 class="emphasis">why?</h2>
 					<video src="./assets/imdb_w_fb_short.mov" data-autoplay loop controls></video>
 					<aside class="notes">
-						why do we need this? Login to imdb via facebook: at some point facebook is loaded, but only
-						required views (login, give access) - no need to load the whole facebook application.
+						<div>
+							why do we need this? Login to imdb via facebook: at some point facebook is loaded, but only
+							required views (login, give access) - no need to load the whole facebook application.
+						</div>
+						<div>
+							need several flows (endpoints)? tens? hundreds?
+						</div>
 					</aside>
 				</section>
 				<section>
@@ -463,7 +469,7 @@
 						</div>
 						<div style="position: relative;">
 							<img src="assets/plugins-everywhere.jpg" alt="plugins everywhere" class="fragment fade-out" data-fragment-index="1" />
-							<pre style="position: absolute; top: 0;" class="fragment" data-fragment-index="1"><code class="language-js">
+							<pre style="position: absolute; top: 0;" class="fragment line-number" data-fragment-index="1"><code class="language-js">
 								export default () => {
 									const app = new App(root);
 
@@ -487,7 +493,9 @@
 							</code></pre>
 						</div>
 						<aside class="notes">
-							<div>>How a typical Fusion.js app looks like</div>
+							<div>How a typical Fusion.js app looks like</div>
+							<div>plugins are registered under some key - Token; Similar to Map() collection</div>
+							<div>tokens are used as keys to build dependecies</div>
 							<div>So, what is a plugin?</div>
 						</aside>
 					</section>
@@ -543,11 +551,22 @@
 						</aside>
 					</section>
 				</section>
-				<section class="center">
-					<div class="emphasis huge">q&a</div>
-					<aside class="notes">
-						Q&A
-					</aside>
+				<section>
+					<section class="center">
+						<div class="emphasis" style="font-size: 3em;">
+							CRuP + Fusion.js
+						</div>
+						<aside class="notes">
+							I still believe we are in the very beginning of our CRuP journey, and I expect changes and improvements in CRuP.
+							But if you have same or similar problems - it's worth of trying it out, just like we already do. Thank you.
+						</aside>
+					</section>
+					<section class="center">
+						<div class="emphasis huge">q&a</div>
+						<aside class="notes">
+							Q&A
+						</aside>
+					</section>
 				</section>
 			</div>
 		</div>
