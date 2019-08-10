@@ -47,7 +47,7 @@
 						<aside class="notes">
 							<p>what is api? api stands for "application programming interface".</p>
 							<p>show two cites</p>
-							<p>but let's focus on word "interface";</p>
+							<p>but let's focus on word "interface"; Why not UI?</p>
 						</aside>
 					</section>
 					<section>
@@ -210,7 +210,7 @@
 						<h2><span class="emphasis">state</span> management</h2>
 						<ul>
 							<li class="fragment">redux reducers</li>
-							<li class="fragment"><a href="https://reactjs.org/docs/higher-order-components.html">HOC</a>s</li>
+							<li class="fragment"><a href="https://reactjs.org/docs/higher-order-components.html">HOC</a>'s</li>
 							<li class="fragment">React <a href="https://reactjs.org/docs/hooks-state.html">useState</a></li>
 						</ul>
 						<aside class="notes">
@@ -351,6 +351,7 @@
 							<div>Each request goes through plugins up to renderer and returns back;</div>
 							<div>Similar to express middlewares</div>
 							<div>plugins order - dependecies go before you; registration is lazy;</div>
+							<div>renderer - also a plugin;</div>
 						</aside>
 					</section>
 					<section>
@@ -444,11 +445,12 @@
 						</div>
 						<div>
 							<pre><code class="language-git">
+								- import ChooseContainer from './choose/ChooseContainer.js';
 								+ import { split } from 'fusion-react';
 
 								&lt;Route key={'choose'} path={resolvePath(props.match.path, './choose')}
 									render={(routeProps) => {
-								-		return &lt;ChooseContainer {...routeProps} resolver={resolver} /&gt;;
+								-		const ChooseContainer = ChooseContainer;
 								+		const ChooseContainer = split({
 								+			load: () => import('./choose/ChooseContainer.js'),
 								+			LoadingComponent: Loading,
@@ -553,9 +555,8 @@
 				</section>
 				<section>
 					<section class="center">
-						<div class="emphasis" style="font-size: 3em;">
-							CRuP + Fusion.js
-						</div>
+						<img src="assets/beginning.gif" style="background: #000; height: 52vh;" />
+						<div class="cite" style="position: absolute; bottom: -1rem; width: 100%; font-style: italic;"><a href="https://campbellken.wordpress.com/2015/10/07/facts-about-the-lion-king-2/">campbellken</a></div>
 						<aside class="notes">
 							I still believe we are in the very beginning of our CRuP journey, and I expect changes and improvements in CRuP.
 							But if you have same or similar problems - it's worth of trying it out, just like we already do. Thank you.
